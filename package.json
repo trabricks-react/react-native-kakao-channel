@@ -1,5 +1,5 @@
 {
-  "name": "@actbase/react-native-kakao-login",
+  "name": "@actbase/react-native-kakao-channel",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -9,7 +9,7 @@
   },
   "keywords": [
     "react-native",
-    "kakao login",
+    "Kakao Channel",
     "카카오로그인"
   ],
   "license": "MIT",
