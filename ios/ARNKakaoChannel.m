@@ -6,7 +6,7 @@
 //  Copyright © 2019 Facebook. All rights reserved.
 //
 
-#import "ANKakaoChannel.h"
+#import "ARNKakaoChannel.h"
 #import <KakaoPlusFriend/KakaoPlusFriend.h>
 
 @implementation ARNKakaoChannel
