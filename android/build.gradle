@@ -32,13 +32,11 @@ android {
 }
 
 repositories {
-    google()
-    mavenCentral()
-	maven { url 'http://devrepo.kakao.com:8088/nexus/content/groups/public/' }
+    maven { url 'http://devrepo.kakao.com:8088/nexus/content/groups/public/' }
 }
 
 dependencies {
     implementation 'com.facebook.react:react-native:+'
-    implementation group: 'com.kakao.sdk', name: 'plusfriend', version: safeExtGet('kakaoSdkVersion','1.25.0')
+    implementation group: 'com.kakao.sdk', name: 'plusfriend', version: safeExtGet('kakaoSdkVersion', '1.25.0')
 }
   

@@ -1,4 +1,4 @@
-package io.actbase.kakaosdk;
+package io.actbase.kakaosdk.channel;
 
 import androidx.annotation.NonNull;
 
@@ -9,11 +9,11 @@ import com.facebook.react.bridge.ReactMethod;
 import com.kakao.util.exception.KakaoException;
 import com.kakao.plusfriend.PlusFriendService;
 
-public class ANKakaoChannelModule extends ReactContextBaseJavaModule {
+public class ARNKakaoChannel extends ReactContextBaseJavaModule {
 
     private ReactApplicationContext reactContext;
 
-    public ANKakaoChannelModule(ReactApplicationContext reactContext) {
+    public ARNKakaoChannel(ReactApplicationContext reactContext) {
         super(reactContext);
         this.reactContext = reactContext;
     }
@@ -21,7 +21,7 @@ public class ANKakaoChannelModule extends ReactContextBaseJavaModule {
     @NonNull
     @Override
     public String getName() {
-        return "ANKakaoChannel";
+        return "ARNKakaoChannel";
     }
 
     @ReactMethod
