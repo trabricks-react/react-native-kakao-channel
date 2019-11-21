@@ -12,6 +12,6 @@
 #import <React/RCTBridgeModule.h>
 #endif
 
-@interface ANKakaoChannel : NSObject <RCTBridgeModule>
+@interface ARNKakaoChannel : NSObject <RCTBridgeModule>
 
 @end

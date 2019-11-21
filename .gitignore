@@ -39,6 +39,7 @@ build/
 local.properties
 *.iml
 gradle.properties
+.settings/
 
 # BUCK
 buck-out/

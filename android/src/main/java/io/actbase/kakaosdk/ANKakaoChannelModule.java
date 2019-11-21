@@ -9,11 +9,11 @@ import com.facebook.react.bridge.ReactMethod;
 import com.kakao.util.exception.KakaoException;
 import com.kakao.plusfriend.PlusFriendService;
 
-public class ANKakaoChannel extends ReactContextBaseJavaModule {
+public class ANKakaoChannelModule extends ReactContextBaseJavaModule {
 
     private ReactApplicationContext reactContext;
 
-    public ANKakaoChannel(ReactApplicationContext reactContext) {
+    public ANKakaoChannelModule(ReactApplicationContext reactContext) {
         super(reactContext);
         this.reactContext = reactContext;
     }
@@ -30,7 +30,7 @@ public class ANKakaoChannel extends ReactContextBaseJavaModule {
             PlusFriendService.getInstance().addFriend(this.getCurrentActivity(), plusFriendId);
             promise.resolve("SUCCESS");
         } catch (KakaoException e) {
-            promise.reject(e.getCause());
+            promise.reject("ANKakaoChannel", e.toString());
         }
     }
 
@@ -39,9 +39,8 @@ public class ANKakaoChannel extends ReactContextBaseJavaModule {
         try {
             PlusFriendService.getInstance().chat(this.getCurrentActivity(), plusFriendId);
             promise.resolve("SUCCESS");
-
         } catch (KakaoException e) {
-            promise.reject(e.getCause());
+            promise.reject("ANKakaoChannel", e.toString());
         }
     }
 }

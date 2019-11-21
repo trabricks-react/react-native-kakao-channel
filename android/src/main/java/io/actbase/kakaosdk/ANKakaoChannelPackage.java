@@ -1,6 +1,6 @@
 package io.actbase.kakaosdk;
 
-import java.util.Arrays;
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
@@ -10,15 +10,13 @@ import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.uimanager.ViewManager;
 import com.facebook.react.bridge.JavaScriptModule;
 
-public class ANKakaoSDKPackage implements ReactPackage {
+public class ANKakaoChannelPackage implements ReactPackage {
 
     @Override
     public List<NativeModule> createNativeModules(ReactApplicationContext reactContext) {
-        return Arrays.<NativeModule>asList(
-                new ANKakaoLogin(reactContext),
-                new ANKakaoLink(reactContext),
-                new ANKakaoChannel(reactContext)
-        );
+        List<NativeModule> modules = new ArrayList<>();
+        modules.add(new ANKakaoChannelModule(reactContext));
+        return modules;
     }
 
     // Deprecated from RN 0.47

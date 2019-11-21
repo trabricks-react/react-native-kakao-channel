@@ -6,16 +6,16 @@
 //  Copyright © 2019 Facebook. All rights reserved.
 //
 
-#import "ANKakaoChannel.h"
+#import "ARNKakaoChannel.h"
 #import <KakaoPlusFriend/KakaoPlusFriend.h>
 
-@implementation ANKakaoChannel
+@implementation ARNKakaoChannel
 
 - (dispatch_queue_t)methodQueue
 {
     return dispatch_get_main_queue();
 }
-RCT_EXPORT_MODULE(ANKakaoChannel)
+RCT_EXPORT_MODULE(ARNKakaoChannel)
 
 RCT_EXPORT_METHOD(addFriend: (NSString *) friendId
                   resolver: (RCTPromiseResolveBlock)resolve

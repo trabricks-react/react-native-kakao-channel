@@ -10,7 +10,9 @@
   "keywords": [
     "react-native",
     "Kakao Channel",
-    "카카오로그인"
+    "카카오톡 채널",
+    "플러스친구",
+    "plusfriend"
   ],
   "license": "MIT",
   "dependencies": {
@@ -24,8 +26,8 @@
     "email": "project@trabricks.io",
     "url": "https://trabricks.io"
   },
-  "homepage": "https://github.com/trabricks/react-native-kakao-login#readme",
+  "homepage": "https://github.com/trabricks/react-native-kakao-channel#readme",
   "bugs": {
-    "url": "https://github.com/trabricks/react-native-kakao-login/issues"
+    "url": "https://github.com/trabricks/react-native-kakao-channel/issues"
   }
 }
