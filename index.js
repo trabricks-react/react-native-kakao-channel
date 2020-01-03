@@ -2,7 +2,7 @@ import { NativeModules } from "react-native";
 
 const { ANKakaoChannel } = NativeModules;
 
-export const channel = {
+export const ARNKakaoChannel = {
   addFriend: id => {
     ANKakaoChannel.addFriend(id);
   },
@@ -11,4 +11,4 @@ export const channel = {
   }
 };
 
-export default channel;
+export default ARNKakaoChannel;
