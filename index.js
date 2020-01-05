@@ -1,13 +1,13 @@
 import { NativeModules } from "react-native";
 
-const { ANKakaoChannel } = NativeModules;
+const { ARNKakaoChannel: channel } = NativeModules;
 
 export const ARNKakaoChannel = {
   addFriend: id => {
-    ANKakaoChannel.addFriend(id);
+    channel.addFriend(id);
   },
   chat: id => {
-    ANKakaoChannel.chat(id);
+    channel.chat(id);
   }
 };
 
