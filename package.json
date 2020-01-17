@@ -2,6 +2,7 @@
   "name": "@actbase/react-native-kakao-channel",
   "version": "1.0.0",
   "description": "",
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -27,6 +28,5 @@
   "homepage": "https://github.com/trabricks/react-native-kakao-channel#readme",
   "bugs": {
     "url": "https://github.com/trabricks/react-native-kakao-channel/issues"
-  },
-  "devDependencies": {}
+  }
 }
