@@ -49,7 +49,7 @@ $ cd ios && pod install && cd ..
 
 ```typescript
 const plusFreindId: string = "_asdfGH";
-KakaoSDK.channel
+KakaoSDK.Channel
   .addFriend(plusFriendId)
   .then(res => console.log(res))
   .catch(e => console.log(e));
@@ -63,7 +63,7 @@ KakaoSDK.channel
 - 웹페이지에서 1:1 채팅 카카오톡 커스텀 스킴 실행
 
 ```typescript
-KakaoSDK.channel
+KakaoSDK.Channel
   .chat(plusFriendId)
   .then(res => console.log(res))
   .catch(e => console.log(e));
