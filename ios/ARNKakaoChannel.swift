@@ -21,34 +21,38 @@ public class ARNKakaoChannel: NSObject {
     }
     
     func presentSafari(url: URL,
-                       completion: () -> Void) -> Bool {
-        var vc: UIViewController = window.rootViewController
+                       completion: @escaping (Bool) -> Void) -> Void {
+        let queue = DispatchQueue(label: "KakaoChannel")
         self.safariViewController = SFSafariViewController(url: url)
         self.safariViewController?.modalTransitionStyle = .crossDissolve
         self.safariViewController?.modalPresentationStyle = .overCurrentContext
         
-        vc.present(self.safariViewController!, animated: true, completion: { () in
-            completion()
-        })
+        queue.async {
+            UIApplication.shared.open(url,
+                                      options: [:],
+                                      completionHandler: { (success) in
+                                        completion(success)
+                                      })
+        }
     }
     
     @objc(addFriend:resolve:reject:)
     func addFriend(_ friendId: NSString,
                    resolver resolve: @escaping RCTPromiseResolveBlock,
-                   rejector reject: @escaping RCTPromiseRejectBlock) -> Bool {
+                   rejector reject: @escaping RCTPromiseRejectBlock) -> Void {
         let url: URL? = TalkApi.shared.makeUrlForAddChannel(channelPublicId: friendId as String)
-        self.presentSafari(url: url!, completion: { () in
-            resolve(true);
+        self.presentSafari(url: url!, completion: { success in
+            resolve(success);
         })
     }
     
     @objc(chat:resolve:reject:)
     func chat(_ friendId: NSString,
               resolver resolve: @escaping RCTPromiseResolveBlock,
-              rejector reject: @escaping RCTPromiseRejectBlock) -> Bool {
+              rejector reject: @escaping RCTPromiseRejectBlock) -> Void {
         let url: URL? = TalkApi.shared.makeUrlForChannelChat(channelPublicId: friendId as String)
-        self.presentSafari(url: url!, completion: { () in
-            resolve(true);
+        self.presentSafari(url: url!, completion: { success in
+            resolve(success);
         })
     }
 }
