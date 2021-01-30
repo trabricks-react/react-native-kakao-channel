@@ -9,19 +9,19 @@
 import Foundation
 import KakaoSDKTalk
 import KakaoSDKCommon
-import WebKit
+import SafariServices
 
 @objc(ARNKakaoChannel)
 public class ARNKakaoChannel: NSObject {
     private var safariViewController: SFSafariViewController?
     
     public override init() {
-        var appKey: String? = Bundle.main.object(forInfoDictionaryKey: "KAKAO_APP_KEY") as String?
+        let appKey: String? = Bundle.main.object(forInfoDictionaryKey: "KAKAO_APP_KEY") as? String
         KakaoSDKCommon.initSDK(appKey: appKey!)
     }
     
     func presentSafari(url: URL,
-                       completion: (Error?) -> Void) -> Bool {
+                       completion: () -> Void) -> Bool {
         self.safariViewController = SFSafariViewController(url: url)
         self.safariViewController?.modalTransitionStyle = .crossDissolve
         self.safariViewController?.modalPresentationStyle = .overCurrentContext
@@ -34,13 +34,9 @@ public class ARNKakaoChannel: NSObject {
     func addFriend(_ friendId: NSString,
                    resolver resolve: @escaping RCTPromiseResolveBlock,
                    rejector reject: @escaping RCTPromiseRejectBlock) -> Bool {
-        var url: URL? = TalkApi.shared.makeUrlForAddChannel(channelPublicId: friendId as String)
-        self.presentSafari(url: url!, (error) {
-            if (error) {
-                reject(error);
-            } else {
-                resolve(true);
-            }
+        let url: URL? = TalkApi.shared.makeUrlForAddChannel(channelPublicId: friendId as String)
+        self.presentSafari(url: url!, completion: { () in
+            resolve(true);
         })
     }
     
@@ -48,13 +44,9 @@ public class ARNKakaoChannel: NSObject {
     func chat(_ friendId: NSString,
               resolver resolve: @escaping RCTPromiseResolveBlock,
               rejector reject: @escaping RCTPromiseRejectBlock) -> Bool {
-        var url: URL? = TalkApi.shared.makeUrlForChannelChat(channelPublicId: friendId as String)
-        self.presentSafari(url: url!, (error) {
-            if (error) {
-                reject(error);
-            } else {
-                resolve(true);
-            }
+        let url: URL? = TalkApi.shared.makeUrlForChannelChat(channelPublicId: friendId as String)
+        self.presentSafari(url: url!, completion: { () in
+            resolve(true);
         })
     }
 }
