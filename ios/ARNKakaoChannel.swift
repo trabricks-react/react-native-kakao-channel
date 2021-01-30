@@ -22,12 +22,14 @@ public class ARNKakaoChannel: NSObject {
     
     func presentSafari(url: URL,
                        completion: () -> Void) -> Bool {
+        var vc: UIViewController = window.rootViewController
         self.safariViewController = SFSafariViewController(url: url)
         self.safariViewController?.modalTransitionStyle = .crossDissolve
         self.safariViewController?.modalPresentationStyle = .overCurrentContext
-        self.present(self.safariViewController!, animated: true) {
+        
+        vc.present(self.safariViewController!, animated: true, completion: { () in
             completion()
-        }
+        })
     }
     
     @objc(addFriend:resolve:reject:)
