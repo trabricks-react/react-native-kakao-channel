@@ -11,16 +11,15 @@ Pod::Spec.new do |s|
   s.homepage  = "https://github.com/trabricks/react-native-kakao-channel#readme"
   s.license   = "MIT"
 
-  s.platform      = :ios, "9.0"
+  s.platform      = :ios, "11.0"
   s.framework     = 'UIKit'
   s.requires_arc  = true
 
   s.source        = { :git => "https://github.com/trabricks/react-native-kakao-channel.git" }
-  s.source_files  = "ios/*.{h,m}"
+  s.source_files  = "ios/*.{h,m,swift}"
 
   s.dependency "React"
-  s.dependency "ARNKakaoSDK"
-
-  s.vendored_frameworks = 'KakaoPlusFriend.framework'
+  s.dependency "KakaoSDKTalk"
+  s.dependency "KakaoSDKCommon"
 
 end
