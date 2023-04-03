@@ -20,8 +20,9 @@ public class ARNKakaoChannel: NSObject {
         KakaoSDK.initSDK(appKey: appKey!)
     }
     
-    override func requiresMainQueueSetup() {
-        return NO;
+    @objc
+    static func requiresMainQueueSetup() -> Bool {
+        return true;
     }
 
     func presentSafari(url: URL,
