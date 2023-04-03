@@ -51,8 +51,7 @@ public class ARNKakaoChannel: NSObject {
         })
     }
 
-    @objc
-    func chat(_ friendId: NSString,
+    @objc func chat(_ friendId: NSString,
               resolver resolve: @escaping RCTPromiseResolveBlock,
               rejector reject: @escaping RCTPromiseRejectBlock) -> Void {
         let url: URL? = TalkApi.shared.makeUrlForChannelChat(channelPublicId: friendId as String)
@@ -61,7 +60,7 @@ public class ARNKakaoChannel: NSObject {
         })
     }
     
-    @objc func doThis(_ friendId: NSString) -> Void {
+    @objc func chatNoPromise(_ friendId: NSString) -> Void {
         let url: URL? = TalkApi.shared.makeUrlForChannelChat(channelPublicId: friendId as String)
         self.presentSafari(url: url!, completion: { success in
         })
