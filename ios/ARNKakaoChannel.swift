@@ -19,6 +19,10 @@ public class ARNKakaoChannel: NSObject {
         let appKey: String? = Bundle.main.object(forInfoDictionaryKey: "KAKAO_APP_KEY") as? String
         KakaoSDK.initSDK(appKey: appKey!)
     }
+    
+    override func requiresMainQueueSetup() {
+        return NO;
+    }
 
     func presentSafari(url: URL,
                        completion: @escaping (Bool) -> Void) -> Void {
