@@ -51,7 +51,7 @@ public class ARNKakaoChannel: NSObject {
         })
     }
 
-    @objc(chat:resolve:reject:)
+    @objc
     func chat(_ friendId: NSString,
               resolver resolve: @escaping RCTPromiseResolveBlock,
               rejector reject: @escaping RCTPromiseRejectBlock) -> Void {
