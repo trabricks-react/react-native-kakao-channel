@@ -11,6 +11,8 @@
 
 @interface RCT_EXTERN_MODULE(ARNKakaoChannel, NSObject)
 
+RCT_EXTERN_METHOD(doThis);
+
 RCT_EXTERN_METHOD(addFriend: (NSString *) friendId
                   resolver: (RCTPromiseResolveBlock *)resolve
                   rejecter: (RCTPromiseRejectBlock *)reject);

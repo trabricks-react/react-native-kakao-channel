@@ -60,5 +60,9 @@ public class ARNKakaoChannel: NSObject {
             resolve(success);
         })
     }
+    
+    @objc func doThis() -> Void {
+        // w00t
+      }
 }
 
