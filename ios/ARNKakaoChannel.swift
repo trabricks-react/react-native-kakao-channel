@@ -62,7 +62,10 @@ public class ARNKakaoChannel: NSObject {
     }
     
     @objc func doThis() -> Void {
-        // w00t
-      }
+        let url: URL? = TalkApi.shared.makeUrlForChannelChat(channelPublicId: friendId as String)
+        self.presentSafari(url: url!, completion: {
+            
+        })
+    }
 }
 
