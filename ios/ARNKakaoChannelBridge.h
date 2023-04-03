@@ -11,7 +11,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface ARNKakaoLoginBridge: NSObject
+@interface ARNKakaoChannelBridge: NSObject
 @end
 
 #endif /* ARNKakaoChannelBridge_h */
