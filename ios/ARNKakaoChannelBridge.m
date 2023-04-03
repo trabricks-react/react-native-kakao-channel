@@ -16,7 +16,7 @@ RCT_EXTERN_METHOD(addFriend: (NSString *) friendId
                   rejecter: (RCTPromiseRejectBlock *)reject);
 
 RCT_EXTERN_METHOD(chat: (NSString *) friendId
-                  resolver: (RCTPromiseResolveBlock *)resolve
-                  rejecter: (RCTPromiseRejectBlock *)reject);
+                  resolver: (RCTPromiseResolveBlock)resolve
+                  rejecter: (RCTPromiseRejectBlock)reject);
 
 @end
