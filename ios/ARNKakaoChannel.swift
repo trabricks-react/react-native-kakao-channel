@@ -14,19 +14,24 @@ import SafariServices
 @objc(ARNKakaoChannel)
 public class ARNKakaoChannel: NSObject {
     private var safariViewController: SFSafariViewController?
-    
+
     public override init() {
         let appKey: String? = Bundle.main.object(forInfoDictionaryKey: "KAKAO_APP_KEY") as? String
-        KakaoSDKCommon.initSDK(appKey: appKey!)
+        KakaoSDK.initSDK(appKey: appKey!)
     }
     
+    @objc
+    static func requiresMainQueueSetup() -> Bool {
+        return true;
+    }
+
     func presentSafari(url: URL,
                        completion: @escaping (Bool) -> Void) -> Void {
         let queue = DispatchQueue(label: "KakaoChannel")
         self.safariViewController = SFSafariViewController(url: url)
         self.safariViewController?.modalTransitionStyle = .crossDissolve
         self.safariViewController?.modalPresentationStyle = .overCurrentContext
-        
+
         queue.async {
             UIApplication.shared.open(url,
                                       options: [:],
@@ -35,7 +40,7 @@ public class ARNKakaoChannel: NSObject {
                                       })
         }
     }
-    
+
     @objc(addFriend:resolve:reject:)
     func addFriend(_ friendId: NSString,
                    resolver resolve: @escaping RCTPromiseResolveBlock,
@@ -45,14 +50,19 @@ public class ARNKakaoChannel: NSObject {
             resolve(success);
         })
     }
-    
-    @objc(chat:resolve:reject:)
-    func chat(_ friendId: NSString,
+
+    @objc func chat(_ friendId: NSString,
               resolver resolve: @escaping RCTPromiseResolveBlock,
               rejector reject: @escaping RCTPromiseRejectBlock) -> Void {
         let url: URL? = TalkApi.shared.makeUrlForChannelChat(channelPublicId: friendId as String)
         self.presentSafari(url: url!, completion: { success in
             resolve(success);
+        })
+    }
+    
+    @objc func chatNoPromise(_ friendId: NSString) -> Void {
+        let url: URL? = TalkApi.shared.makeUrlForChannelChat(channelPublicId: friendId as String)
+        self.presentSafari(url: url!, completion: { success in
         })
     }
 }

@@ -7,7 +7,7 @@ export const addFriend = id => {
 };
 
 export const chat = id => {
-  return ARNKakaoChannel.chat(id);
+  return ARNKakaoChannel.chatNoPromise(id);
 };
 
 export default {
